@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react-swc'
 import vitePluginImp from 'vite-plugin-imp'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import path from 'path'
+import postCssPxToRem from "postcss-pxtorem"
 import packageJSON from './package.json'
 
 // https://vitejs.dev/config/
@@ -38,8 +39,10 @@ export default defineConfig({
     })
   ],
   resolve: {
+    extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json'],
     alias: {
-      "@": path.resolve(__dirname, "src")
+      "@": path.resolve(__dirname, "src"),
+      components: path.resolve(__dirname, "src/components")
     }
   },
   build: {
@@ -63,5 +66,17 @@ export default defineConfig({
         },
       },
     },
+  },
+  css: {
+    postcss: {
+      plugins: [
+        postCssPxToRem({
+          rootValue: 192, // 根据设计稿大小设置
+          propList: ['*'], // 需要转换的属性，这里选择全部都进行转换
+          minPixelValue: 2,
+          exclude: /(node_module)/,
+        })
+      ]
+    }
   },
 })
