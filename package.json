@@ -1,14 +1,15 @@
 {
   "name": "big-screen",
   "private": true,
-  "port": 8000,
+  "port": 7744,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker": "docker build -t big-screen:0.0.0 ."
   },
   "dependencies": {
     "react": "^18.2.0",

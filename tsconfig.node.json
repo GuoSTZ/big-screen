@@ -1,22 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "composite": true,
-    "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "@/*": ["./src/*"],
-      "components/*": ["./src/components/*"],
-    }
+    "resolveJsonModule": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "package.json",
-    "vite.config.ts"
-  ]
+  "include": ["package.json", "vite.config.ts"]
 }
